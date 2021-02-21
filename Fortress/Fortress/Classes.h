@@ -116,6 +116,7 @@ public:
 
 	void SetAmmoStack()
 	{
+		ammoStack = 0;
 		ammoStack += Archer::GetAmount() + Ranger::GetAmount();
 	}
 

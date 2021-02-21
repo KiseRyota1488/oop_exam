@@ -5,16 +5,13 @@
 
 using namespace std;
 
-enum Classes
-{
-	ArcherTower = 1,
-	Catapult
-};
+
 
 int main()
 {
 	srand(time(0));
 	Fortress fortress;
+	
 
 	cout << "\tBattle preparing ...\n Add ammo for squads\n ...\n";
 	fortress.AddAmmo();
@@ -28,24 +25,23 @@ int main()
 	char key;
 	do
 	{
-		cin >> key;
 		cout << "\t\tBATTLE\n" << setw(20) << left << "Archer tower"
 			<< "\nAmmo amount: " << setw(20) << left << fortress.ArcherTower::GetAmmoStack() << endl
 			<< setw(20) << left << fortress.Catapult::GetLabel()
 			<< "\nAmmo amount: " << setw(20) << left << fortress.Catapult::GetAmount() 
 			<< right<<"Fortress HP: " << fortress.GetHp() << endl;
 
-		Classes curClass = ArcherTower;
-
-		switch (curClass)
+		fortress.ArcherTower::SetAmmoStack();
+		int choice = rand() % 2+1;
+		switch (choice)
 		{
-		case ArcherTower:
+		case 1:
 		{
 			fortress.ArcherTower::Shoot();
 			fortress.ReduceHp(1);
-			break;
+	/		break;
 		}
-		case Catapult:
+		case 2:
 		{
 			fortress.Catapult::Shoot();
 			fortress.ReduceHp(2);
@@ -57,7 +53,7 @@ int main()
 		
 		system("PAUSE");
 		system("cls");
-		
+		key = '1';
 	} while (key != '5');
 
 
