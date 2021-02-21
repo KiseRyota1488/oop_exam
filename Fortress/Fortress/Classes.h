@@ -107,6 +107,13 @@ public:
 		Ranger("Ranger", 0);
 	}
 
+	void Shoot() override
+	{
+		cout << "Archer tower shooted with arrows\n";
+		Archer::ReduceAmmo();
+		Ranger::ReduceAmmo();
+	}
+
 	void SetAmmoStack()
 	{
 		ammoStack += Archer::GetAmount() + Ranger::GetAmount();
@@ -139,7 +146,12 @@ public:
 
 	void SetHp(int value)
 	{
-		this->hp = value;
+		hp = value;
+	}
+
+	void ReduceHp(int value)
+	{
+		hp-= value;
 	}
 
 	void AddAmmo()
