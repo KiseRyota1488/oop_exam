@@ -112,6 +112,7 @@ public:
 		cout << "Archer tower shooted with arrows\n";
 		Archer::ReduceAmmo();
 		Ranger::ReduceAmmo();
+		SetAmmoStack();
 	}
 
 	void SetAmmoStack()
